@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 'clamp(62px, 8vw, 76px)' }}>
         
         {/* Brand Logo */}
         <a 
@@ -78,14 +78,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             textDecoration: 'none', 
             display: 'flex', 
             alignItems: 'center', 
-            gap: '12px',
-            color: 'inherit'
+            gap: 'clamp(8px, 2vw, 12px)',
+            color: 'inherit',
+            flexShrink: 0
           }}
         >
           <div 
             style={{
-              width: '42px',
-              height: '42px',
+              width: 'clamp(36px, 5vw, 42px)',
+              height: 'clamp(36px, 5vw, 42px)',
+              minWidth: '36px',
               borderRadius: '12px',
               background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(168, 85, 247, 0.2))',
               border: '1px solid rgba(0, 242, 254, 0.4)',
@@ -93,10 +95,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 0 16px rgba(0, 242, 254, 0.2)',
-              position: 'relative'
+              position: 'relative',
+              flexShrink: 0
             }}
           >
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: '1.05rem', color: '#00f2fe' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 'clamp(0.9rem, 2.2vw, 1.05rem)', color: '#00f2fe' }}>
               PC
             </span>
             <div 
@@ -112,12 +115,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               }}
             />
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontWeight: 800, fontSize: 'clamp(0.9rem, 2.5vw, 1.05rem)', letterSpacing: '-0.02em', color: '#fff' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
+              <span 
+                className="navbar-brand-name"
+                style={{ 
+                  fontWeight: 800, 
+                  fontSize: 'clamp(0.96rem, 2.8vw, 1.08rem)', 
+                  letterSpacing: '-0.02em', 
+                  color: '#fff',
+                  whiteSpace: 'nowrap'
+                }}
+              >
                 {PERSONAL_INFO.name}
               </span>
               <span 
+                className="navbar-badge"
                 style={{
                   fontSize: '0.68rem',
                   padding: '2px 6px',
@@ -125,13 +138,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   background: 'rgba(0, 242, 254, 0.12)',
                   color: '#00f2fe',
                   border: '1px solid rgba(0, 242, 254, 0.3)',
-                  fontFamily: 'var(--font-mono)'
+                  fontFamily: 'var(--font-mono)',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 SWE
               </span>
             </div>
-            <p className="navbar-subtitle" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0 }}>
+            <p className="navbar-subtitle" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, whiteSpace: 'nowrap' }}>
               React · FastAPI · WebSockets
             </p>
           </div>
@@ -178,15 +192,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         </nav>
 
         {/* Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           {/* Resume Trigger */}
           <button
             onClick={onOpenResume}
+            className="navbar-resume-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '8px 16px',
+              padding: '8px 14px',
               borderRadius: '10px',
               border: '1px solid rgba(0, 242, 254, 0.3)',
               background: 'rgba(0, 242, 254, 0.08)',
@@ -196,10 +211,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               fontWeight: 600,
               fontFamily: 'var(--font-mono)',
               transition: 'all 0.2s ease',
+              whiteSpace: 'nowrap'
             }}
           >
-            <FileText size={15} />
-            <span>Resume</span>
+            <FileText size={15} style={{ flexShrink: 0 }} />
+            <span className="navbar-resume-text">Resume</span>
           </button>
 
           {/* Contact Button */}
@@ -340,9 +356,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
       {/* Media query styling helper */}
       <style>{`
-        @media (max-width: 420px) {
+        .navbar-brand-name {
+          white-space: nowrap !important;
+        }
+        @media (max-width: 768px) {
           .navbar-subtitle {
             display: none !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .navbar-badge {
+            display: none !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .navbar-resume-btn {
+            padding: 7px 11px !important;
+            font-size: 0.8rem !important;
+          }
+        }
+        @media (max-width: 360px) {
+          .navbar-resume-text {
+            display: none !important;
+          }
+          .navbar-resume-btn {
+            padding: 8px !important;
           }
         }
         @media (min-width: 900px) {
