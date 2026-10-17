@@ -60,7 +60,7 @@ EDUCATION
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '20px'
+        padding: 'clamp(8px, 2.5vw, 20px)'
       }}
       onClick={onClose}
     >
@@ -86,7 +86,7 @@ EDUCATION
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '16px 24px',
+            padding: 'clamp(12px, 3vw, 16px) clamp(14px, 3.5vw, 24px)',
             background: 'rgba(13, 20, 39, 0.95)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             gap: '12px',
@@ -94,7 +94,7 @@ EDUCATION
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontWeight: 800, fontSize: '1.05rem', color: '#fff' }}>
+            <span style={{ fontWeight: 800, fontSize: 'clamp(0.92rem, 2.4vw, 1.05rem)', color: '#fff' }}>
               Curriculum Vitae — Piyush Chauhan
             </span>
             <span
@@ -175,7 +175,7 @@ EDUCATION
           style={{
             flex: 1,
             overflowY: 'auto',
-            padding: '40px',
+            padding: 'clamp(16px, 4vw, 40px)',
             background: '#ffffff',
             color: '#1e293b',
             fontFamily: 'system-ui, -apple-system, sans-serif'
@@ -227,13 +227,13 @@ EDUCATION
 
           {/* Document Header */}
           <div style={{ textAlign: 'center', borderBottom: '2px solid #0f172a', paddingBottom: '16px', marginBottom: '20px' }}>
-            <h1 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#0f172a', margin: '0 0 6px', letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.1rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 6px', letterSpacing: '-0.02em' }}>
               {PERSONAL_INFO.name.toUpperCase()}
             </h1>
-            <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0284c7', marginBottom: '8px' }}>
+            <div style={{ fontSize: 'clamp(0.85rem, 2.2vw, 1rem)', fontWeight: 700, color: '#0284c7', marginBottom: '8px' }}>
               {PERSONAL_INFO.title} | React.js · TypeScript · Python · FastAPI · WebSockets · PostgreSQL · AI Integrations
             </div>
-            <div style={{ fontSize: '0.86rem', color: '#475569', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px' }}>
+            <div style={{ fontSize: '0.86rem', color: '#475569', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', wordBreak: 'break-word' }}>
               <span>✉️ {PERSONAL_INFO.email}</span>
               <span>📍 {PERSONAL_INFO.location}</span>
               <span>🔗 {PERSONAL_INFO.githubUsername}</span>

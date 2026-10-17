@@ -114,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontWeight: 800, fontSize: '1.05rem', letterSpacing: '-0.02em', color: '#fff' }}>
+              <span style={{ fontWeight: 800, fontSize: 'clamp(0.9rem, 2.5vw, 1.05rem)', letterSpacing: '-0.02em', color: '#fff' }}>
                 {PERSONAL_INFO.name}
               </span>
               <span 
@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 SWE
               </span>
             </div>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0 }}>
+            <p className="navbar-subtitle" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0 }}>
               React · FastAPI · WebSockets
             </p>
           </div>
@@ -340,6 +340,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
       {/* Media query styling helper */}
       <style>{`
+        @media (max-width: 420px) {
+          .navbar-subtitle {
+            display: none !important;
+          }
+        }
         @media (min-width: 900px) {
           .desktop-nav {
             display: flex !important;

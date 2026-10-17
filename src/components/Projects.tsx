@@ -29,7 +29,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
     : PROJECTS.filter(p => p.category === filter);
 
   return (
-    <section id="projects" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="projects" style={{ padding: 'clamp(60px, 8vw, 90px) 0', position: 'relative' }}>
       
       {/* Background glow */}
       <div 
@@ -115,7 +115,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
             gap: '24px'
           }}
         >
@@ -127,7 +127,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                padding: '30px',
+                padding: 'clamp(20px, 4vw, 30px)',
                 position: 'relative',
                 overflow: 'hidden'
               }}
@@ -341,7 +341,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '20px'
+            padding: 'clamp(10px, 2.5vw, 20px)'
           }}
           onClick={() => setSelectedProject(null)}
         >
@@ -352,7 +352,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
               maxWidth: '750px',
               maxHeight: '90vh',
               overflowY: 'auto',
-              padding: '36px',
+              padding: 'clamp(20px, 4vw, 36px)',
               position: 'relative',
               boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 242, 254, 0.15)'
             }}
@@ -414,7 +414,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
               <h4 style={{ fontSize: '0.95rem', color: '#cbd5e1', marginBottom: '14px', letterSpacing: '0.04em' }}>
                 SYSTEM ARCHITECTURE DESIGN
               </h4>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '12px' }}>
                 <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '14px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#00f2fe', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>
                     <Layers size={14} /> CLIENT LAYER

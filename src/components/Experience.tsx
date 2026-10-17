@@ -11,7 +11,7 @@ export const Experience: React.FC = () => {
   const [activeExpId, setActiveExpId] = useState<string>('codegarage');
 
   return (
-    <section id="experience" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="experience" style={{ padding: 'clamp(60px, 8vw, 90px) 0', position: 'relative' }}>
       
       {/* Background glow */}
       <div 
@@ -64,8 +64,8 @@ export const Experience: React.FC = () => {
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(280px, 1fr) minmax(320px, 2fr)',
-            gap: '30px'
+            gridTemplateColumns: 'minmax(min(100%, 280px), 1fr) minmax(min(100%, 320px), 2fr)',
+            gap: 'clamp(16px, 3vw, 30px)'
           }}
           className="experience-layout"
         >
@@ -79,7 +79,7 @@ export const Experience: React.FC = () => {
                   onClick={() => setActiveExpId(exp.id)}
                   className="glass-panel"
                   style={{
-                    padding: '24px',
+                    padding: 'clamp(16px, 3.5vw, 24px)',
                     cursor: 'pointer',
                     borderColor: isSelected ? '#00f2fe' : 'rgba(255, 255, 255, 0.08)',
                     background: isSelected ? 'rgba(0, 242, 254, 0.08)' : 'rgba(13, 20, 39, 0.6)',
@@ -122,7 +122,7 @@ export const Experience: React.FC = () => {
             {/* Quick Summary Pill */}
             <div 
               style={{
-                padding: '20px',
+                padding: 'clamp(14px, 3vw, 20px)',
                 borderRadius: '16px',
                 background: 'rgba(6, 11, 24, 0.65)',
                 border: '1px solid rgba(255, 255, 255, 0.06)'
@@ -145,7 +145,7 @@ export const Experience: React.FC = () => {
                 key={exp.id}
                 className="glass-panel"
                 style={{
-                  padding: '36px',
+                  padding: 'clamp(20px, 4vw, 36px)',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   position: 'relative'
                 }}

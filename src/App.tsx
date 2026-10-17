@@ -89,13 +89,14 @@ export function App() {
         <div
           style={{
             position: 'fixed',
-            bottom: '24px',
-            right: '24px',
+            bottom: 'clamp(14px, 3vw, 24px)',
+            right: 'clamp(12px, 3vw, 24px)',
+            maxWidth: 'calc(100vw - 24px)',
             zIndex: 200,
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            padding: '12px 20px',
+            padding: '12px 18px',
             borderRadius: '12px',
             background: 'rgba(10, 16, 32, 0.95)',
             border: '1px solid rgba(0, 242, 254, 0.4)',

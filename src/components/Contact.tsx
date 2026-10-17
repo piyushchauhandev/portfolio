@@ -25,7 +25,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
   };
 
   return (
-    <section id="contact" style={{ padding: '90px 0 120px', position: 'relative' }}>
+    <section id="contact" style={{ padding: 'clamp(60px, 8vw, 90px) 0 clamp(80px, 10vw, 120px)', position: 'relative' }}>
       
       {/* Background glow */}
       <div 
@@ -78,7 +78,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '20px',
             marginBottom: '24px'
           }}
@@ -87,7 +87,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
           <div 
             className="glass-panel"
             style={{
-              padding: '28px',
+              padding: 'clamp(18px, 4vw, 28px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -138,17 +138,18 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
               <a 
                 href={`mailto:${PERSONAL_INFO.email}`} 
                 style={{ 
-                  fontSize: '1.05rem', 
+                  fontSize: 'clamp(0.88rem, 2.3vw, 1.05rem)', 
                   fontWeight: 700, 
                   color: '#fff', 
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px'
+                  gap: '6px',
+                  wordBreak: 'break-all'
                 }}
               >
                 <span>{PERSONAL_INFO.email}</span>
-                <ArrowUpRight size={16} color="#00f2fe" />
+                <ArrowUpRight size={16} color="#00f2fe" style={{ flexShrink: 0 }} />
               </a>
             </div>
           </div>
@@ -157,7 +158,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
           <div 
             className="glass-panel"
             style={{
-              padding: '28px',
+              padding: 'clamp(18px, 4vw, 28px)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -194,14 +195,14 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
         </div>
 
         {/* Social Profiles Row */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noreferrer"
             className="glass-panel"
             style={{
-              padding: '20px 24px',
+              padding: 'clamp(16px, 3.5vw, 20px) clamp(16px, 3.5vw, 24px)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -209,7 +210,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
               color: '#fff'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
               <div 
                 style={{
                   width: '42px',
@@ -218,19 +219,20 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
                   background: 'rgba(255, 255, 255, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  flexShrink: 0
                 }}
               >
                 <GithubIcon size={22} />
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.96rem' }}>GitHub Profile</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', wordBreak: 'break-all' }}>
                   github.com/piyushchauhandev
                 </div>
               </div>
             </div>
-            <ArrowUpRight size={18} color="#00f2fe" />
+            <ArrowUpRight size={18} color="#00f2fe" style={{ flexShrink: 0 }} />
           </a>
 
           <a
@@ -239,7 +241,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
             rel="noreferrer"
             className="glass-panel"
             style={{
-              padding: '20px 24px',
+              padding: 'clamp(16px, 3.5vw, 20px) clamp(16px, 3.5vw, 24px)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -247,7 +249,7 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
               color: '#fff'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
               <div 
                 style={{
                   width: '42px',
@@ -256,19 +258,20 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
                   background: 'rgba(0, 242, 254, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  flexShrink: 0
                 }}
               >
                 <LinkedinIcon size={22} color="#00f2fe" />
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <div style={{ fontWeight: 700, fontSize: '0.96rem' }}>LinkedIn Network</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', wordBreak: 'break-all' }}>
                   linkedin.com/in/piyush-chauhan-96724035a
                 </div>
               </div>
             </div>
-            <ArrowUpRight size={18} color="#00f2fe" />
+            <ArrowUpRight size={18} color="#00f2fe" style={{ flexShrink: 0 }} />
           </a>
         </div>
 

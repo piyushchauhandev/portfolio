@@ -11,7 +11,7 @@ export const EducationCertifications: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'education' | 'certifications'>('education');
 
   return (
-    <section id="education" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="education" style={{ padding: 'clamp(60px, 8vw, 90px) 0', position: 'relative' }}>
       
       {/* Background glow */}
       <div 
@@ -127,17 +127,17 @@ export const EducationCertifications: React.FC = () => {
                 key={idx}
                 className="glass-panel"
                 style={{
-                  padding: '28px',
+                  padding: 'clamp(18px, 4vw, 28px)',
                   display: 'flex',
                   flexWrap: 'wrap',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  gap: '20px',
+                  gap: '16px',
                   position: 'relative',
                   borderLeft: idx === 0 ? '4px solid #00f2fe' : '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                <div style={{ flex: '1 1 450px' }}>
+                <div style={{ flex: '1 1 min(100%, 360px)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                     <span 
                       style={{
@@ -216,7 +216,7 @@ export const EducationCertifications: React.FC = () => {
           <div 
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               gap: '20px'
             }}
           >
@@ -225,7 +225,7 @@ export const EducationCertifications: React.FC = () => {
                 key={idx}
                 className="glass-panel"
                 style={{
-                  padding: '28px',
+                  padding: 'clamp(18px, 4vw, 28px)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between'

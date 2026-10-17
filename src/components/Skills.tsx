@@ -28,7 +28,7 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" style={{ padding: '90px 0', position: 'relative' }}>
+    <section id="skills" style={{ padding: 'clamp(60px, 8vw, 90px) 0', position: 'relative' }}>
       
       {/* Background ambient lighting */}
       <div 
@@ -81,7 +81,7 @@ export const Skills: React.FC = () => {
         <div 
           className="glass-panel"
           style={{
-            padding: '24px 30px',
+            padding: 'clamp(18px, 3.5vw, 24px) clamp(16px, 3.5vw, 30px)',
             marginBottom: '40px',
             border: '1px solid rgba(168, 85, 247, 0.3)',
             background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(0, 242, 254, 0.08) 100%)',
@@ -184,7 +184,7 @@ export const Skills: React.FC = () => {
             key={cat.name}
             className="glass-panel"
             style={{
-              padding: '36px',
+              padding: 'clamp(20px, 4vw, 36px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               marginBottom: '50px'
             }}
@@ -201,8 +201,8 @@ export const Skills: React.FC = () => {
             <div 
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '20px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
+                gap: 'clamp(12px, 2.5vw, 20px)'
               }}
             >
               {cat.skills.map((skill) => (
@@ -283,7 +283,7 @@ export const Skills: React.FC = () => {
           <div 
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
               gap: '12px'
             }}
           >

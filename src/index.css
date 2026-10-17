@@ -49,6 +49,7 @@ html {
   background-color: var(--bg-base);
   color: var(--text-primary);
   color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -62,11 +63,14 @@ body {
     radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
     linear-gradient(to bottom, #060913 0%, #080d1a 100%);
   background-attachment: fixed;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-base);
@@ -91,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   letter-spacing: -0.025em;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .font-mono {
@@ -116,6 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 .glass-panel-elevated {
   background: var(--bg-surface-elevated);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-light);
   border-radius: 24px;
 }
@@ -158,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 12px var(--emerald-neon);
   display: inline-block;
   animation: pulseNeon 2s infinite;
+  flex-shrink: 0;
 }
 
 .live-dot-cyan {
@@ -168,6 +175,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 12px var(--cyan-neon);
   display: inline-block;
   animation: pulseNeon 2s infinite;
+  flex-shrink: 0;
 }
 
 /* Keyframe Animations */
@@ -223,8 +231,10 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-subtle);
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text-secondary);
   transition: all 0.25s ease;
+  max-width: 100%;
 }
 
 .badge-pill:hover {
@@ -238,11 +248,11 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 13px 28px;
-  border-radius: 14px;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: 12px;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #030712;
   background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 100%);
@@ -253,6 +263,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -265,19 +276,21 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 26px;
-  border-radius: 14px;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
   cursor: pointer;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: all 0.25s ease;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {
@@ -292,16 +305,18 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 22px;
+  padding: 10px 20px;
   border-radius: 12px;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--cyan-neon);
   background: rgba(0, 242, 254, 0.08);
   border: 1px solid rgba(0, 242, 254, 0.3);
   cursor: pointer;
   transition: all 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-cyber:hover {
@@ -318,9 +333,54 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 24px;
 }
 
+/* Responsive Media Queries */
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
+  }
+
+  .glass-panel {
+    border-radius: 16px;
+  }
+
+  .btn-primary, .btn-secondary, .btn-cyber {
+    font-size: 0.86rem;
+    padding: 9px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .badge-pill {
+    padding: 5px 10px;
+    font-size: 0.76rem;
+  }
+
+  .btn-primary, .btn-secondary, .btn-cyber {
+    font-size: 0.82rem;
+    padding: 8px 16px;
+  }
+}
+
+/* Print Styles for formatted resume */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-resume, .printable-resume * {
+    visibility: visible;
+  }
+  .printable-resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
   }
 }
 
