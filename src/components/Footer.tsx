@@ -1,169 +1,77 @@
-import React from 'react';
-import { ArrowUp, Mail } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './BrandIcons';
+﻿import React from "react";
+import { ArrowUp, Mail } from "lucide-react";
+import { PERSONAL_INFO } from "../data/portfolioData";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 
 export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer 
+    <footer
       style={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        background: '#040711',
-        padding: '50px 0 35px',
-        position: 'relative'
+        borderTop: "1px solid var(--border)",
+        padding: "40px 0 32px",
       }}
     >
       <div className="container">
-        <div 
+        <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '24px',
-            marginBottom: '35px'
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "16px 24px",
+            marginBottom: 24,
           }}
         >
-          {/* Brand info */}
-          <div style={{ maxWidth: '400px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <div 
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '8px',
-                  background: 'rgba(0, 242, 254, 0.15)',
-                  border: '1px solid rgba(0, 242, 254, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 800,
-                  fontSize: '0.88rem',
-                  color: '#00f2fe'
-                }}
-              >
-                PC
-              </div>
-              <span style={{ fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>
-                {PERSONAL_INFO.name}
-              </span>
+          {/* Left: identity */}
+          <div>
+            <div style={{ fontWeight: 600, fontSize: "0.95rem", color: "var(--text-1)", marginBottom: 4 }}>
+              {PERSONAL_INFO.name}
             </div>
-            <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
-              Junior Software Engineer specialized in React, TypeScript, FastAPI, WebSockets & AI Integrations.
-            </p>
+            <div style={{ fontSize: "0.82rem", color: "var(--text-3)" }}>
+              Junior Software Engineer · React · FastAPI · WebSockets
+            </div>
           </div>
 
-          {/* Socials & Back to Top */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <a
-              href={PERSONAL_INFO.github}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                textDecoration: 'none'
-              }}
-              title="GitHub"
-            >
-              <GithubIcon size={18} />
+          {/* Right: actions */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="icon-btn" title="GitHub">
+              <GithubIcon size={15} />
             </a>
-
-            <a
-              href={PERSONAL_INFO.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#00f2fe',
-                textDecoration: 'none'
-              }}
-              title="LinkedIn"
-            >
-              <LinkedinIcon size={18} />
+            <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="icon-btn" title="LinkedIn">
+              <LinkedinIcon size={15} />
             </a>
-
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#10b981',
-                textDecoration: 'none'
-              }}
-              title="Email"
-            >
-              <Mail size={18} />
+            <a href={`mailto:${PERSONAL_INFO.email}`} className="icon-btn" title="Email">
+              <Mail size={15} />
             </a>
-
-            {/* Back to top */}
             <button
               onClick={scrollToTop}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '9px 16px',
-                borderRadius: '10px',
-                background: 'rgba(0, 242, 254, 0.08)',
-                border: '1px solid rgba(0, 242, 254, 0.25)',
-                color: '#00f2fe',
-                fontSize: '0.84rem',
-                fontWeight: 600,
-                cursor: 'pointer'
-              }}
+              className="icon-btn"
+              style={{ marginLeft: 4 }}
+              title="Back to top"
             >
-              <ArrowUp size={16} />
-              <span>Back to Top</span>
+              <ArrowUp size={15} />
             </button>
           </div>
         </div>
 
-        {/* Bottom copyright & tech strip */}
-        <div 
+        <div
           style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-            paddingTop: '20px',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            fontSize: '0.78rem',
-            color: 'var(--text-dim)',
-            gap: '12px'
+            borderTop: "1px solid var(--border)",
+            paddingTop: 20,
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "8px",
+            fontSize: "0.75rem",
+            color: "var(--text-3)",
+            fontFamily: "var(--font-mono)",
           }}
         >
-          <div>
-            © 2026 {PERSONAL_INFO.name}. All rights reserved.
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-mono)' }}>
-            <span>Built with React 19 · TypeScript · Vite · Glassmorphism</span>
-          </div>
+          <span>© 2026 {PERSONAL_INFO.name}</span>
+          <span>Built with React · TypeScript · Vite</span>
         </div>
       </div>
     </footer>

@@ -70,7 +70,7 @@ export const PERSONAL_INFO = {
   github: "https://github.com/piyushchauhandev",
   githubUsername: "piyushchauhandev",
   linkedin: "https://www.linkedin.com/in/piyush-chauhan-96724035a",
-  about: `Results-driven Junior Software Engineer with practical industry exposure building modern web applications, asynchronous backend services, and scalable full-stack architectures. Currently interning at CodeGarage Tech, actively contributing to production engineering across live client platforms including an AI Codebase Architecture & Vulnerability Visualizer and customer communication workflows on Chatwoot. Proven capability engineering end-to-end web applications with modern AI tooling (Antigravity, Cursor, Claude Code, Gemini AI), real-time bi-directional streaming via WebSockets, and interactive graph systems.`,
+  about: `Results-driven Junior Software Engineer with practical industry exposure building modern web applications, asynchronous backend services, and scalable full-stack architectures. Completed a software engineering internship at CodeGarage Tech, contributing to production engineering across live client platforms including an AI Codebase Architecture & Vulnerability Visualizer and customer communication workflows on Chatwoot. Proven capability engineering end-to-end web applications with modern AI tooling (Antigravity, Cursor, Claude Code, Gemini AI), real-time bi-directional streaming via WebSockets, and interactive graph systems.`,
   stats: [
     { label: "MCA Academics", value: "8.4 CGPA", detail: "TIMT Yamunanagar" },
     { label: "Production Platforms", value: "2+ Live", detail: "CodeGarage Tech" },
@@ -183,12 +183,12 @@ export const PROJECTS: Project[] = [
     status: "Enterprise Client Platform",
     date: "March 2026 – Present",
     badgeColor: "from-purple-500 to-cyan-500",
-    summary: "Automated developer platform that ingests repositories, scans AST syntax trees, renders interactive dependency diagrams via React Flow, and streams analysis progress via WebSockets with ELK observability.",
+    summary: "Automated developer platform that ingests repositories, scans AST syntax trees, renders interactive dependency diagrams via React Flow, and streams analysis progress via WebSockets with ELK (Eclipse Layout Kernel) automated graph layout.",
     description: [
       "Collaborate on an automated developer tool that ingests user-uploaded repositories or connects via GitHub, scanning AST syntax trees to generate interactive architectural dependency diagrams and highlight structural bugs and security weaknesses.",
       "Implement interactive graphical node-and-edge flow components using React, TypeScript, and React Flow, enabling intuitive code navigation for complex software systems.",
       "Integrate WebSockets for real-time bi-directional progress streaming, notifying the frontend during long-running repository scanning and background worker execution.",
-      "Work on backend microservices powered by Python and FastAPI; assist in logging, tracing, and runtime observability using the ELK (Elasticsearch, Logstash, Kibana) stack.",
+      "Integrated ELK (Eclipse Layout Kernel / elkjs) layout algorithms with React Flow to calculate optimal hierarchical graph layouts and edge routing for AST codebase dependency trees.",
       "Conduct in-depth debugging, code profiling, and modular refactoring across complex multi-file frontend and backend repositories."
     ],
     techStack: [
@@ -198,26 +198,26 @@ export const PROJECTS: Project[] = [
       "Python",
       "FastAPI",
       "WebSockets",
-      "ELK Stack",
+      "ELK (Eclipse Layout Kernel)",
       "PostgreSQL",
       "AST Parsers"
     ],
     highlights: [
       "Interactive node-and-edge graph canvas powered by React Flow",
       "Real-time bi-directional WebSocket streaming during repository AST parsing",
-      "ELK Stack observability for log tracing across background workers",
+      "Automated hierarchical graph layout powered by ELK (Eclipse Layout Kernel)",
       "Security vulnerability and dependency bottleneck detection"
     ],
     architecture: {
       client: "React, TypeScript & React Flow with custom node rendering",
       backend: "FastAPI microservices with asynchronous worker queues",
-      database: "PostgreSQL & Elasticsearch for distributed log analysis",
+      database: "PostgreSQL with ELK graph layout calculations",
       special: "AST (Abstract Syntax Tree) analyzer + bi-directional WebSockets"
     },
     metrics: [
       { label: "UI Flow", value: "React Flow" },
       { label: "Streaming", value: "WebSockets" },
-      { label: "Tracing", value: "ELK Stack" },
+      { label: "Tracing", value: "ELK (Eclipse Layout Kernel)" },
       { label: "Engine", value: "FastAPI AST" }
     ],
     githubUrl: "https://github.com/piyushchauhandev",
@@ -273,10 +273,10 @@ export const EXPERIENCES: ExperienceItem[] = [
     id: "codegarage",
     company: "CodeGarage Tech",
     role: "Software Engineering Intern",
-    period: "March 2026 – Present",
+    period: "March 2026 – October 2026",
     location: "Mohali, Punjab, India",
     type: "Internship (On-Site / Production)",
-    summary: "Actively contributing to production engineering across two live enterprise client platforms, applying scalable software architecture, structured modular folder conventions, and modern full-stack software engineering practices.",
+    summary: "Contributed to production engineering across two live enterprise client platforms, applying scalable software architecture, structured modular folder conventions, and modern full-stack software engineering practices.",
     techStack: [
       "TypeScript",
       "React.js",
@@ -284,7 +284,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Python",
       "FastAPI",
       "WebSockets",
-      "ELK Stack",
+      "ELK (Eclipse Layout Kernel)",
       "PostgreSQL",
       "MongoDB",
       "Chatwoot"
@@ -296,7 +296,7 @@ export const EXPERIENCES: ExperienceItem[] = [
           "Collaborate on an automated developer tool that ingests user-uploaded repositories or connects via GitHub, scanning AST syntax trees to generate interactive architectural dependency diagrams and highlight structural bugs and security weaknesses.",
           "Implement interactive graphical node-and-edge flow components using React, TypeScript, and React Flow, enabling intuitive code navigation for complex software systems.",
           "Integrate WebSockets for real-time bi-directional progress streaming, notifying the frontend during long-running repository scanning and background worker execution.",
-          "Work on backend microservices powered by Python and FastAPI; assist in logging, tracing, and runtime observability using the ELK (Elasticsearch, Logstash, Kibana) stack.",
+          "Integrated ELK (Eclipse Layout Kernel / elkjs) layout algorithms with React Flow to calculate optimal hierarchical graph layouts and edge routing for AST codebase dependency trees.",
           "Conduct in-depth debugging, code profiling, and modular refactoring across complex multi-file frontend and backend repositories."
         ]
       },
@@ -313,10 +313,10 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "novem-control",
     company: "Novem Control Private Limited",
-    role: "Software Engineer Intern",
+    role: "Flutter Developer Intern",
     period: "June 2025 – August 2025",
-    location: "Yamunanagar, Haryana (Hybrid)",
-    type: "Internship (Hybrid)",
+    location: "Phase 8B, Mohali, Punjab, India",
+    type: "Summer Internship (On-Site)",
     summary: "Engineered responsive cross-platform mobile application modules with strict focus on UI performance, widget lifecycle management, and offline-first persistence.",
     techStack: [
       "Flutter",
@@ -398,7 +398,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: "Cpu",
     description: "Distributed tracing, logging, version control, and Unix environments",
     skills: [
-      { name: "ELK Stack", level: 82, tags: ["Elasticsearch", "Logstash", "Kibana", "Log Tracing"] },
+      { name: "ELK (Eclipse Layout Kernel)", level: 82, tags: ["Elasticsearch", "Logstash", "Kibana", "Log Tracing"] },
       { name: "Git & GitHub", level: 90, tags: ["Branching Strategies", "PR Reviews", "Merge Conflicts"] },
       { name: "Postman & API Testing", level: 88, tags: ["Contract Testing", "Env Variables", "Automation"] },
       { name: "Linux (Ubuntu) & Windows", level: 85, tags: ["Bash", "Shell Scripts", "Dev Environments"] },
@@ -429,7 +429,7 @@ export const CORE_COMPETENCIES = [
   "Authentication & Security (OTP, JWT)",
   "Asynchronous Microservices (FastAPI)",
   "Systematic Debugging & Profiling",
-  "Observability & Log Tracing (ELK)",
+  "Graph Layout Algorithms (ELK / elkjs)",
   "Git Version Control & Agile Delivery"
 ];
 
@@ -460,24 +460,6 @@ export const EDUCATION: EducationItem[] = [
     scoreType: "Score",
     status: "Completed",
     description: "Analytical problem-solving, advanced mathematics, physics, and computational logic."
-  },
-  {
-    degree: "Senior Secondary Certificate (Class XII – Non-Medical)",
-    institution: "Haryana Board of School Education (HBSE)",
-    period: "2018",
-    score: "62.2%",
-    scoreType: "Score",
-    status: "Completed",
-    description: "Focus on Mathematics, Physics, Chemistry, and Analytical Thinking."
-  },
-  {
-    degree: "Secondary School Certificate (Class X)",
-    institution: "Haryana Board of School Education (HBSE)",
-    period: "2016",
-    score: "75.2%",
-    scoreType: "Score",
-    status: "Completed",
-    description: "Foundation in science, mathematics, and computing literacy."
   }
 ];
 

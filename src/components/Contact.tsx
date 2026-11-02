@@ -1,280 +1,252 @@
-import React, { useState } from 'react';
-import { 
-  Mail, 
-  MapPin, 
-  Copy, 
-  Check, 
-  ArrowUpRight,
-  Send
-} from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon } from './BrandIcons';
+﻿import React, { useState } from "react";
+import { Mail, MapPin, Copy, Check, ArrowUpRight } from "lucide-react";
+import { PERSONAL_INFO } from "../data/portfolioData";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 
 interface ContactProps {
   onShowToast: (message: string) => void;
 }
 
 export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
-  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    setCopiedField(label);
-    onShowToast(`Copied ${label} to clipboard!`);
-    setTimeout(() => setCopiedField(null), 2500);
+    setCopied(label);
+    onShowToast(`Copied ${label} to clipboard`);
+    setTimeout(() => setCopied(null), 2500);
   };
 
   return (
-    <section id="contact" style={{ padding: 'clamp(60px, 8vw, 90px) 0 clamp(80px, 10vw, 120px)', position: 'relative' }}>
-      
-      {/* Background glow */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: '30%',
-          right: '15%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%)',
-          filter: 'blur(90px)',
-          pointerEvents: 'none'
-        }}
-      />
-
-      <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '960px' }}>
-        
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 52px' }}>
-          <div 
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 16px',
-              borderRadius: '9999px',
-              background: 'rgba(0, 242, 254, 0.08)',
-              border: '1px solid rgba(0, 242, 254, 0.3)',
-              marginBottom: '16px'
-            }}
-          >
-            <Send size={15} color="#00f2fe" />
-            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#00f2fe', fontFamily: 'var(--font-mono)' }}>
-              LET'S CONNECT
-            </span>
-          </div>
-
-          <h2 style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3.2rem)', marginBottom: '16px' }}>
-            Get In Touch & <span className="gradient-text-cyan">Contact Me</span>
-          </h2>
-          
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.65 }}>
-            I am actively open to Junior Software Engineer, Full-Stack Developer, and Backend/Frontend Engineering opportunities.
-            Feel free to email or connect with me directly on LinkedIn or GitHub.
+    <section id="contact">
+      <div className="container" style={{ maxWidth: 860 }}>
+        <div style={{ marginBottom: 40 }}>
+          <span className="section-label">Contact</span>
+          <h2 className="section-heading">Get in touch</h2>
+          <p style={{ fontSize: "0.98rem", color: "var(--text-2)", maxWidth: 520, lineHeight: 1.7 }}>
+            I am open to junior software engineering roles, full-stack and backend positions,
+            and collaborations on interesting projects. Feel free to reach out directly.
           </p>
         </div>
 
-        {/* Contact Cards Grid */}
-        <div 
+        <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: '20px',
-            marginBottom: '24px'
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+            gap: 16,
           }}
         >
-          {/* Email Card */}
-          <div 
-            className="glass-panel"
-            style={{
-              padding: 'clamp(18px, 4vw, 28px)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: '20px'
-            }}
+          {/* Email */}
+          <div
+            className="surface"
+            style={{ padding: "22px 24px" }}
           >
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
-              <div 
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '14px',
-                  background: 'rgba(0, 242, 254, 0.12)',
-                  border: '1px solid rgba(0, 242, 254, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                <Mail size={24} color="#00f2fe" />
-              </div>
-              <button
-                onClick={() => copyToClipboard(PERSONAL_INFO.email, 'Email address')}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '8px',
-                  padding: '6px 12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  color: 'var(--text-secondary)',
-                  cursor: 'pointer',
-                  fontSize: '0.78rem',
-                  fontFamily: 'var(--font-mono)'
-                }}
-                title="Copy email"
-              >
-                {copiedField === 'Email address' ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
-                <span>{copiedField === 'Email address' ? 'Copied' : 'Copy'}</span>
-              </button>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '4px' }}>
-                Primary Email
-              </div>
-              <a 
-                href={`mailto:${PERSONAL_INFO.email}`} 
-                style={{ 
-                  fontSize: 'clamp(0.88rem, 2.3vw, 1.05rem)', 
-                  fontWeight: 700, 
-                  color: '#fff', 
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  wordBreak: 'break-all'
-                }}
-              >
-                <span>{PERSONAL_INFO.email}</span>
-                <ArrowUpRight size={16} color="#00f2fe" style={{ flexShrink: 0 }} />
-              </a>
-            </div>
-          </div>
-
-          {/* Location Card */}
-          <div 
-            className="glass-panel"
-            style={{
-              padding: 'clamp(18px, 4vw, 28px)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: '20px'
-            }}
-          >
-            <div 
+            <div
               style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '14px',
-                background: 'rgba(245, 158, 11, 0.12)',
-                border: '1px solid rgba(245, 158, 11, 0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginBottom: 16,
               }}
             >
-              <MapPin size={24} color="#f59e0b" />
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 6,
+                    background: "var(--bg-raised)",
+                    border: "1px solid var(--border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--text-2)",
+                  }}
+                >
+                  <Mail size={16} />
+                </div>
+                <span
+                  style={{
+                    fontSize: "0.72rem",
+                    fontFamily: "var(--font-mono)",
+                    color: "var(--text-3)",
+                    letterSpacing: "0.08em",
+                  }}
+                >
+                  EMAIL
+                </span>
+              </div>
+              <button
+                onClick={() => copyToClipboard(PERSONAL_INFO.email, "email")}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5,
+                  background: "transparent",
+                  border: "1px solid var(--border)",
+                  borderRadius: 5,
+                  padding: "5px 10px",
+                  color: "var(--text-3)",
+                  cursor: "pointer",
+                  fontSize: "0.74rem",
+                  fontFamily: "var(--font-mono)",
+                  transition: "all 0.15s ease",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLButtonElement).style.color = "var(--text-1)";
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-mid)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.color = "var(--text-3)";
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border)";
+                }}
+              >
+                {copied === "email" ? <Check size={12} color="#4ade80" /> : <Copy size={12} />}
+                {copied === "email" ? "Copied" : "Copy"}
+              </button>
             </div>
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              style={{
+                fontSize: "0.92rem",
+                fontWeight: 500,
+                color: "var(--text-1)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 5,
+                wordBreak: "break-all",
+                transition: "color 0.15s ease",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--text-2)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--text-1)")}
+            >
+              {PERSONAL_INFO.email}
+              <ArrowUpRight size={14} style={{ flexShrink: 0 }} />
+            </a>
+          </div>
 
-            <div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '4px' }}>
-                Current Locations
+          {/* Location */}
+          <div className="surface" style={{ padding: "22px 24px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 6,
+                  background: "var(--bg-raised)",
+                  border: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--text-2)",
+                }}
+              >
+                <MapPin size={16} />
               </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '4px' }}>
-                Yamunanagar & Mohali, India
-              </div>
-              <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                Open to on-site, hybrid, or remote engineering roles
-              </div>
+              <span
+                style={{
+                  fontSize: "0.72rem",
+                  fontFamily: "var(--font-mono)",
+                  color: "var(--text-3)",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                LOCATION
+              </span>
+            </div>
+            <div style={{ fontSize: "0.92rem", fontWeight: 500, color: "var(--text-1)", marginBottom: 4 }}>
+              Yamunanagar & Mohali, India
+            </div>
+            <div style={{ fontSize: "0.82rem", color: "var(--text-3)" }}>
+              Open to remote, hybrid, or on-site
             </div>
           </div>
-        </div>
 
-        {/* Social Profiles Row */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '16px' }}>
+          {/* GitHub */}
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noreferrer"
-            className="glass-panel"
+            className="surface surface-hover"
             style={{
-              padding: 'clamp(16px, 3.5vw, 20px) clamp(16px, 3.5vw, 24px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              textDecoration: 'none',
-              color: '#fff'
+              padding: "22px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              textDecoration: "none",
+              transition: "border-color 0.15s ease, background 0.15s ease",
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
-              <div 
+            <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
+              <div
                 style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
+                  width: 36,
+                  height: 36,
+                  borderRadius: 6,
+                  background: "var(--bg-raised)",
+                  border: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--text-2)",
+                  flexShrink: 0,
                 }}
               >
-                <GithubIcon size={22} />
+                <GithubIcon size={16} />
               </div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.96rem' }}>GitHub Profile</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', wordBreak: 'break-all' }}>
+                <div style={{ fontSize: "0.88rem", fontWeight: 500, color: "var(--text-1)" }}>GitHub</div>
+                <div style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--text-3)" }}>
                   github.com/piyushchauhandev
                 </div>
               </div>
             </div>
-            <ArrowUpRight size={18} color="#00f2fe" style={{ flexShrink: 0 }} />
+            <ArrowUpRight size={15} color="var(--text-3)" style={{ flexShrink: 0 }} />
           </a>
 
+          {/* LinkedIn */}
           <a
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="glass-panel"
+            className="surface surface-hover"
             style={{
-              padding: 'clamp(16px, 3.5vw, 20px) clamp(16px, 3.5vw, 24px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              textDecoration: 'none',
-              color: '#fff'
+              padding: "22px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              textDecoration: "none",
+              transition: "border-color 0.15s ease, background 0.15s ease",
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', minWidth: 0 }}>
-              <div 
+            <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
+              <div
                 style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '10px',
-                  background: 'rgba(0, 242, 254, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
+                  width: 36,
+                  height: 36,
+                  borderRadius: 6,
+                  background: "var(--bg-raised)",
+                  border: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--text-2)",
+                  flexShrink: 0,
                 }}
               >
-                <LinkedinIcon size={22} color="#00f2fe" />
+                <LinkedinIcon size={16} />
               </div>
               <div style={{ minWidth: 0 }}>
-                <div style={{ fontWeight: 700, fontSize: '0.96rem' }}>LinkedIn Network</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', wordBreak: 'break-all' }}>
+                <div style={{ fontSize: "0.88rem", fontWeight: 500, color: "var(--text-1)" }}>LinkedIn</div>
+                <div style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--text-3)" }}>
                   linkedin.com/in/piyush-chauhan-96724035a
                 </div>
               </div>
             </div>
-            <ArrowUpRight size={18} color="#00f2fe" style={{ flexShrink: 0 }} />
+            <ArrowUpRight size={15} color="var(--text-3)" style={{ flexShrink: 0 }} />
           </a>
         </div>
-
       </div>
     </section>
   );

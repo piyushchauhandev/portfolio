@@ -26,10 +26,10 @@ PROFESSIONAL SUMMARY
 ${PERSONAL_INFO.about}
 
 PROFESSIONAL EXPERIENCE
-- Software Engineering Intern — CodeGarage Tech (March 2026 – Present, Mohali, Punjab)
-  - Live Project 1: AI Codebase Architecture & Vulnerability Visualizer (React, TypeScript, React Flow, WebSockets, Python, FastAPI, ELK)
+- Software Engineering Intern — CodeGarage Tech (March 2026 – October 2026, Mohali, Punjab)
+  - Live Project 1: AI Codebase Architecture & Vulnerability Visualizer (React, TypeScript, React Flow, ELK / Eclipse Layout Kernel, WebSockets, Python, FastAPI)
   - Live Project 2: Omnichannel Customer Calling & Billing Platform (Chatwoot)
-- Software Engineer Intern — Novem Control Private Limited (June 2025 – August 2025)
+- Flutter Developer Intern — Novem Control Private Limited (June 2025 – August 2025, Phase 8B, Mohali)
   - Flutter, Dart, Sqflite, Hive, Firebase Firestore & Authentication
 
 FEATURED PROJECTS
@@ -258,11 +258,11 @@ EDUCATION
             </h2>
             <div style={{ fontSize: '0.86rem', lineHeight: 1.6, color: '#334155', display: 'flex', flexDirection: 'column', gap: '3px' }}>
               <div><strong>Languages:</strong> Python, TypeScript, JavaScript (ES6+), SQL, HTML5, CSS3</div>
-              <div><strong>Frontend & UI:</strong> React.js, React Flow, Next.js, Responsive Web Design, Component Architecture, Material UI</div>
+              <div><strong>Frontend & UI:</strong> React.js, React Flow, ELK (Eclipse Layout Kernel / elkjs), Next.js, Responsive Web Design, Component Architecture, Material UI</div>
               <div><strong>Backend & APIs:</strong> FastAPI, Python Async (async/await), WebSockets, RESTful APIs, Microservices, Node.js Basics</div>
               <div><strong>AI Tools:</strong> Antigravity, Claude Code, Cursor, LLM Prompting & API Orchestration, Gemini AI</div>
               <div><strong>Databases & ORMs:</strong> PostgreSQL, MongoDB, MySQL, SQLAlchemy, SQLite, Sequelize</div>
-              <div><strong>DevOps & Observability:</strong> Git, GitHub, ELK Stack (Elasticsearch, Logstash, Kibana), Postman, Linux (Ubuntu), Windows</div>
+              <div><strong>DevOps & Tools:</strong> Git, GitHub, Postman, Linux (Ubuntu), Windows, VS Code</div>
               <div><strong>Core CS:</strong> OOP, Data Structures & Algorithms, DBMS, CRUD Operations, Systematic Debugging</div>
             </div>
           </div>

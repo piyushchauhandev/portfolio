@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Code2, 
-  FileText, 
-  Menu, 
-  X, 
-  Send, 
-  Sparkles,
-  Layers,
-  GraduationCap
-} from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+﻿import React, { useState, useEffect } from "react";
+import { FileText, Menu, X } from "lucide-react";
+import { PERSONAL_INFO } from "../data/portfolioData";
+import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 
 interface NavbarProps {
   onOpenResume: () => void;
@@ -17,382 +9,216 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      const sections = ['hero', 'projects', 'experience', 'skills', 'education', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const sections = ["hero", "about", "projects", "experience", "skills", "education", "contact"];
+      const offset = window.scrollY + 120;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && offset >= el.offsetTop && offset < el.offsetTop + el.offsetHeight) {
+          setActiveSection(id);
+          break;
         }
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
-    { label: 'Projects', href: '#projects', icon: Code2, id: 'projects' },
-    { label: 'Experience', href: '#experience', icon: Layers, id: 'experience' },
-    { label: 'Skills', href: '#skills', icon: Sparkles, id: 'skills' },
-    { label: 'Education', href: '#education', icon: GraduationCap, id: 'education' },
-    { label: 'Contact', href: '#contact', icon: Send, id: 'contact' },
+    { label: "About", href: "#about", id: "about" },
+    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "Experience", href: "#experience", id: "experience" },
+    { label: "Skills", href: "#skills", id: "skills" },
+    { label: "Education", href: "#education", id: "education" },
+    { label: "Contact", href: "#contact", id: "contact" },
   ];
 
   return (
-    <header 
+    <header
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
+        position: "fixed",
+        top: 0, left: 0, right: 0,
         zIndex: 50,
-        transition: 'all 0.3s ease',
-        background: scrolled 
-          ? 'rgba(6, 9, 19, 0.88)' 
-          : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+        height: 60,
+        background: scrolled ? "rgba(14,14,14,0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+        transition: "background 0.3s ease, border-color 0.3s ease",
       }}
     >
-      <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 'clamp(62px, 8vw, 76px)' }}>
-        
-        {/* Brand Logo */}
-        <a 
-          href="#hero" 
-          style={{ 
-            textDecoration: 'none', 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: 'clamp(8px, 2vw, 12px)',
-            color: 'inherit',
-            flexShrink: 0
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
+        {/* Brand */}
+        <a
+          href="#hero"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            textDecoration: "none",
+            flexShrink: 0,
           }}
         >
-          <div 
+          <span
             style={{
-              width: 'clamp(36px, 5vw, 42px)',
-              height: 'clamp(36px, 5vw, 42px)',
-              minWidth: '36px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(168, 85, 247, 0.2))',
-              border: '1px solid rgba(0, 242, 254, 0.4)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 16px rgba(0, 242, 254, 0.2)',
-              position: 'relative',
-              flexShrink: 0
+              fontFamily: "var(--font-mono)",
+              fontWeight: 600,
+              fontSize: "0.95rem",
+              color: "var(--text-1)",
+              letterSpacing: "-0.01em",
             }}
           >
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 'clamp(0.9rem, 2.2vw, 1.05rem)', color: '#00f2fe' }}>
-              PC
-            </span>
-            <div 
-              style={{
-                position: 'absolute',
-                top: '-3px',
-                right: '-3px',
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                background: '#10b981',
-                boxShadow: '0 0 8px #10b981'
-              }}
-            />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap' }}>
-              <span 
-                className="navbar-brand-name"
-                style={{ 
-                  fontWeight: 800, 
-                  fontSize: 'clamp(0.96rem, 2.8vw, 1.08rem)', 
-                  letterSpacing: '-0.02em', 
-                  color: '#fff',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                {PERSONAL_INFO.name}
-              </span>
-              <span 
-                className="navbar-badge"
-                style={{
-                  fontSize: '0.68rem',
-                  padding: '2px 6px',
-                  borderRadius: '4px',
-                  background: 'rgba(0, 242, 254, 0.12)',
-                  color: '#00f2fe',
-                  border: '1px solid rgba(0, 242, 254, 0.3)',
-                  fontFamily: 'var(--font-mono)',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                SWE
-              </span>
-            </div>
-            <p className="navbar-subtitle" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, whiteSpace: 'nowrap' }}>
-              React · FastAPI · WebSockets
-            </p>
-          </div>
+            PC
+          </span>
+          <span
+            style={{
+              width: 1,
+              height: 16,
+              background: "var(--border-mid)",
+              flexShrink: 0,
+            }}
+          />
+          <span
+            style={{
+              fontSize: "0.88rem",
+              fontWeight: 500,
+              color: "var(--text-2)",
+            }}
+            className="hide-sm"
+          >
+            {PERSONAL_INFO.name}
+          </span>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav 
-          style={{ 
-            display: 'none', 
-            alignItems: 'center', 
-            gap: '6px',
-            background: 'rgba(255, 255, 255, 0.03)',
-            padding: '4px 8px',
-            borderRadius: '9999px',
-            border: '1px solid rgba(255, 255, 255, 0.06)'
+        {/* Desktop nav */}
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
           }}
-          className="desktop-nav"
+          className="show-lg-only"
         >
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <a
-                key={link.id}
-                href={link.href}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '8px 16px',
-                  borderRadius: '9999px',
-                  fontSize: '0.86rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  color: isActive ? '#00f2fe' : 'var(--text-secondary)',
-                  background: isActive ? 'rgba(0, 242, 254, 0.12)' : 'transparent',
-                  border: isActive ? '1px solid rgba(0, 242, 254, 0.3)' : '1px solid transparent',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                {link.label}
-              </a>
-            );
-          })}
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              style={{
+                padding: "6px 12px",
+                borderRadius: 5,
+                fontSize: "0.84rem",
+                fontWeight: 500,
+                color: activeSection === link.id ? "var(--text-1)" : "var(--text-2)",
+                background: activeSection === link.id ? "var(--bg-surface)" : "transparent",
+                transition: "color 0.15s ease, background 0.15s ease",
+                textDecoration: "none",
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-          {/* Resume Trigger */}
+        {/* Right actions */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+          <a
+            href={PERSONAL_INFO.github}
+            target="_blank"
+            rel="noreferrer"
+            className="icon-btn hide-sm"
+            title="GitHub"
+          >
+            <GithubIcon size={16} />
+          </a>
+          <a
+            href={PERSONAL_INFO.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="icon-btn hide-sm"
+            title="LinkedIn"
+          >
+            <LinkedinIcon size={16} />
+          </a>
           <button
             onClick={onOpenResume}
-            className="navbar-resume-btn"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '8px 14px',
-              borderRadius: '10px',
-              border: '1px solid rgba(0, 242, 254, 0.3)',
-              background: 'rgba(0, 242, 254, 0.08)',
-              color: '#00f2fe',
-              cursor: 'pointer',
-              fontSize: '0.84rem',
-              fontWeight: 600,
-              fontFamily: 'var(--font-mono)',
-              transition: 'all 0.2s ease',
-              whiteSpace: 'nowrap'
-            }}
+            className="btn btn-secondary"
+            style={{ padding: "7px 14px", fontSize: "0.82rem" }}
           >
-            <FileText size={15} style={{ flexShrink: 0 }} />
-            <span className="navbar-resume-text">Resume</span>
+            <FileText size={14} />
+            <span>Resume</span>
           </button>
-
-          {/* Contact Button */}
-          <a
-            href="#contact"
-            style={{
-              display: 'none',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '9px 18px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #00f2fe, #38bdf8)',
-              color: '#020617',
-              fontWeight: 700,
-              fontSize: '0.86rem',
-              textDecoration: 'none',
-              boxShadow: '0 2px 14px rgba(0, 242, 254, 0.35)',
-              transition: 'all 0.2s ease',
-            }}
-            className="desktop-contact-btn"
-          >
-            <Send size={14} />
-            <span>Contact</span>
-          </a>
-
-          {/* Mobile Menu Toggle */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="icon-btn hide-lg"
             aria-label="Toggle menu"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '40px',
-              height: '40px',
-              borderRadius: '10px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              color: '#fff',
-              cursor: 'pointer',
-            }}
-            className="mobile-menu-btn"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div 
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div
           style={{
-            background: 'rgba(6, 9, 19, 0.98)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-            padding: '20px 24px 28px',
-            backdropFilter: 'blur(20px)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px'
+            background: "rgba(14,14,14,0.98)",
+            borderBottom: "1px solid var(--border)",
+            padding: "12px 16px 20px",
+            backdropFilter: "blur(12px)",
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
           }}
         >
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            const isActive = activeSection === link.id;
-            return (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '12px 16px',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  color: isActive ? '#00f2fe' : 'var(--text-secondary)',
-                  background: isActive ? 'rgba(0, 242, 254, 0.1)' : 'rgba(255, 255, 255, 0.02)',
-                  border: isActive ? '1px solid rgba(0, 242, 254, 0.3)' : '1px solid transparent'
-                }}
-              >
-                <Icon size={18} color={isActive ? '#00f2fe' : '#94a3b8'} />
-                {link.label}
-              </a>
-            );
-          })}
-
-          <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-              style={{
-                flex: 1,
-                padding: '12px',
-                borderRadius: '12px',
-                background: 'rgba(0, 242, 254, 0.1)',
-                border: '1px solid rgba(0, 242, 254, 0.3)',
-                color: '#00f2fe',
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
-              }}
-            >
-              <FileText size={16} />
-              Resume
-            </button>
+          {navLinks.map((link) => (
             <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
+              key={link.id}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
               style={{
-                flex: 1,
-                padding: '12px',
-                borderRadius: '12px',
-                background: 'linear-gradient(135deg, #00f2fe, #38bdf8)',
-                color: '#020617',
-                fontWeight: 700,
-                textAlign: 'center',
-                textDecoration: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
+                display: "block",
+                padding: "10px 12px",
+                borderRadius: 6,
+                fontSize: "0.9rem",
+                fontWeight: 500,
+                color: activeSection === link.id ? "var(--text-1)" : "var(--text-2)",
+                background: activeSection === link.id ? "var(--bg-surface)" : "transparent",
+                textDecoration: "none",
               }}
             >
-              <Send size={16} />
-              Contact
+              {link.label}
+            </a>
+          ))}
+          <div style={{ display: "flex", gap: 8, marginTop: 8, paddingTop: 12, borderTop: "1px solid var(--border)" }}>
+            <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="icon-btn">
+              <GithubIcon size={16} />
+            </a>
+            <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="icon-btn">
+              <LinkedinIcon size={16} />
             </a>
           </div>
         </div>
       )}
 
-      {/* Media query styling helper */}
       <style>{`
-        .navbar-brand-name {
-          white-space: nowrap !important;
-        }
-        @media (max-width: 768px) {
-          .navbar-subtitle {
-            display: none !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .navbar-badge {
-            display: none !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .navbar-resume-btn {
-            padding: 7px 11px !important;
-            font-size: 0.8rem !important;
-          }
-        }
-        @media (max-width: 360px) {
-          .navbar-resume-text {
-            display: none !important;
-          }
-          .navbar-resume-btn {
-            padding: 8px !important;
-          }
-        }
         @media (min-width: 900px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .desktop-contact-btn {
-            display: inline-flex !important;
-          }
-          .mobile-menu-btn {
-            display: none !important;
-          }
+          .show-lg-only { display: flex !important; }
+        }
+        @media (max-width: 899px) {
+          .show-lg-only { display: none !important; }
         }
       `}</style>
     </header>
