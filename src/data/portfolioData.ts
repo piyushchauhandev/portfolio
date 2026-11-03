@@ -446,7 +446,7 @@ export const EDUCATION: EducationItem[] = [
   {
     degree: "Post Graduate Diploma in Computer Applications (PGDCA)",
     institution: "Government College, Chhachhrauli",
-    period: "2022 – 2024",
+    period: "2023 – 2024",
     score: "67.1%",
     scoreType: "Score",
     status: "Completed",
@@ -455,7 +455,7 @@ export const EDUCATION: EducationItem[] = [
   {
     degree: "Bachelor of Science (B.Sc. – Non-Medical)",
     institution: "Mukand Lal National College, Yamunanagar",
-    period: "2018 – 2022",
+    period: "2020 – 2022",
     score: "69.2%",
     scoreType: "Score",
     status: "Completed",

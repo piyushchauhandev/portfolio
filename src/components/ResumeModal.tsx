@@ -38,8 +38,8 @@ FEATURED PROJECTS
 
 EDUCATION
 - Master of Computer Applications (MCA), TIMT Yamunanagar (2024–2026) — CGPA: 8.4 / 10.0
-- Post Graduate Diploma in Computer Applications (PGDCA), Govt College Chhachhrauli (2022–2024) — 67.1%
-- Bachelor of Science (B.Sc. Non-Medical), MLN College Yamunanagar (2018–2022) — 69.2%
+- Post Graduate Diploma in Computer Applications (PGDCA), Govt College Chhachhrauli (2023–2024) — 67.1%
+- Bachelor of Science (B.Sc. Non-Medical), MLN College Yamunanagar (2020–2022) — 69.2%
     `.trim();
 
     navigator.clipboard.writeText(text);
